@@ -48,10 +48,11 @@ class PictureAdapter : ListAdapter<Picture, PictureAdapter.ViewHolder>(DiffCallb
             coroutineScope.launch {
                 withContext(Dispatchers.IO) {
                     imageView.load(BuildConfig.IMAGE_URL) {
-                        placeholder(R.drawable.broken_image)
+                        placeholder(R.drawable.loading_image)
                         memoryCachePolicy(CachePolicy.DISABLED)
                         crossfade(750)
                         transformations(RoundedCornersTransformation(7f))
+                        error(R.drawable.broken_image)
                     }
                 }
 
